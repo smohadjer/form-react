@@ -1,4 +1,4 @@
-# form
+# form-react
 Demo of JavaScript transfering data between browser and server/database using JSON, Node.js, MongoDB and React.
 
 https://form-react-blush.vercel.app/

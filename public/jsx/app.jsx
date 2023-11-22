@@ -1,5 +1,4 @@
 import Form from './components/form.js';
-import Profile from './components/profile.js';
 
 const app = document.getElementById('app');
 
@@ -23,11 +22,10 @@ async function getFormData(userData) {
 
 function App() {
   const [formData, setFormData] = React.useState(null);
-  const [userData, setUserData] = React.useState([]);
+  const [userData, setUserData] = React.useState();
 
   React.useEffect(() => {
     fetchJson('/api/profile').then((result) => {
-      console.log(result);
       setUserData(result);
       getFormData(result).then((json) => {
         setFormData(json);
@@ -43,7 +41,13 @@ function App() {
           <Form data={formData} formCallback={setFormData} profileCallback={setUserData} />
         </div>
       </div>
-      <Profile data={userData} />
+      <div className="profile">
+        <h2>My Profile</h2>
+        <p>Here we simply log users data from database:</p>
+        <div id="profile">
+          <code>{JSON.stringify(userData)}</code>
+        </div>
+      </div>
     </>
   )
 }
