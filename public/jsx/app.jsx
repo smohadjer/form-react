@@ -39,7 +39,7 @@ function App() {
       <div className="form">
         <h2>Edit Profile</h2>
         <div id="form">
-          <Form data={formData} callback={setUserData} />
+          <Form data={formData} updateState={setUserData} />
         </div>
       </div>
       <Profile data={userData} />
