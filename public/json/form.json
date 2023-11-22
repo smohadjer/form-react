@@ -1,6 +1,10 @@
 {
   "method": "POST",
   "action": "api/profile",
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
   "fields": [
     {
       "name": "firstname",

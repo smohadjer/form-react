@@ -22,21 +22,27 @@ async function getFormData(userData) {
 }
 
 function App() {
-  const [formData, setFormData] = React.useState([]);
+  const [formData, setFormData] = React.useState(null);
   const [userData, setUserData] = React.useState([]);
 
   React.useEffect(() => {
     fetchJson('/api/profile').then((result) => {
+      console.log(result);
       setUserData(result);
       getFormData(result).then((json) => {
-        setFormData(json.fields);
+        setFormData(json);
       });
     });
   }, []);
 
   return (
     <>
-      <Form data={formData} formCallback={setFormData} profileCallback={setUserData} />
+      <div className="form">
+        <h2>Edit Profile</h2>
+        <div id="form">
+          <Form data={formData} formCallback={setFormData} profileCallback={setUserData} />
+        </div>
+      </div>
       <Profile data={userData} />
     </>
   )
