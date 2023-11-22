@@ -1,8 +1,18 @@
 
+import { validateClientSide, displayServerSideErrors } from './validate.js';
 
-export default function Form({data, formCallback, profileCallback}) {
+function Hint({text}) {
+  return text ? <p className="hint">{text}</p> : null;
+}
+
+export default function Form({data, updateState}) {
   const submitHandler = (event) => {
     event.preventDefault();
+
+    if (!validateClientSide(event.target)) {
+      return
+    }
+
     const formData = new FormData(event.target);
     const jsonData = Object.fromEntries(formData);
     const dataJsonString = JSON.stringify(jsonData);
@@ -14,7 +24,8 @@ export default function Form({data, formCallback, profileCallback}) {
     })
     .then(response => response.json())
     .then(json => {
-      json.error ? formCallback(json.error) : profileCallback(json);
+      console.log(json);
+      json.error ? displayServerSideErrors(json.error, event.target) : updateState(json);
     }).catch(err => console.warn('Something went wrong.', err));
   };
 
@@ -28,6 +39,7 @@ export default function Form({data, formCallback, profileCallback}) {
                 {item.required ? '*' : ''}
               </label>
               <div>
+                <Hint text={item.hint} />
                 <input name={item.name} defaultValue={item.value}/>
                 <p className="error" hidden>{item.error}</p>
               </div>

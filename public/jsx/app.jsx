@@ -1,4 +1,5 @@
 import Form from './components/form.js';
+import Profile from './components/profile.js';
 
 const app = document.getElementById('app');
 
@@ -38,16 +39,10 @@ function App() {
       <div className="form">
         <h2>Edit Profile</h2>
         <div id="form">
-          <Form data={formData} formCallback={setFormData} profileCallback={setUserData} />
+          <Form data={formData} callback={setUserData} />
         </div>
       </div>
-      <div className="profile">
-        <h2>My Profile</h2>
-        <p>Here we simply log users data from database:</p>
-        <div id="profile">
-          <code>{JSON.stringify(userData)}</code>
-        </div>
-      </div>
+      <Profile data={userData} />
     </>
   )
 }

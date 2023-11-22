@@ -1,4 +1,18 @@
-export default function validate($form) {
+export function displayServerSideErrors(error, $form) {
+  const errors = error.errors;
+  if (Array.isArray(errors) && errors.length > 0) {
+    errors.forEach((errorObject) => {
+      const field = $form.querySelector(`input[name=${ errorObject.name}`);
+      if (field) {
+        field.classList.add('error');
+        field.nextElementSibling.textContent = errorObject.error;
+        field.nextElementSibling.removeAttribute('hidden');
+      }
+    });
+  }
+}
+
+export function validateClientSide($form) {
   const inputs = $form.querySelectorAll('input');
   const state = { isValid: true };
   const resetValidation = (inputs) => {

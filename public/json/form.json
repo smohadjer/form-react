@@ -11,21 +11,20 @@
       "label": "First Name",
       "required": true,
       "error": "Only letters are allowed",
-      "hint": "Use only letters"
+      "hint": "Use letters only, digits will trigger client-side error on submit"
     },
     {
       "name": "lastname",
       "label": "Last Name",
       "required": false,
-      "error": "Only letters are allowed",
-      "hint": "Use only letters"
+      "hint": "Use letters only, digits will trigger client-side error on submit"
     },
     {
       "name": "age",
       "label": "Age",
       "required": false,
       "error": "Only digits are allowed",
-      "hint": "Use only digits"
+      "hint": "Use only digits. letters will trigger client-side error on submit. Add an age older than 100 to trigger server-side error"
     }
   ]
 }
