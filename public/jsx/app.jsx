@@ -45,23 +45,24 @@ function App() {
           }
         });
       });
-
       setFormData(data);
     }
   }
 
   React.useEffect(() => {
     fetchJson('./json/form.json').then((result) => {
+      console.log('fetch from json only once');
       setFormData(result);
     });
 
     fetchJson('/api/profile').then((result) => {
+      console.log('fetch user data from db only once');
       setUserData(result[0]);
     });
   }, []);
 
   React.useEffect(() => {
-    console.log('running effect to update form since user data has changed')
+    console.log('This effect runs every time userData state changes')
     removeErrors();
     updateFormData();
   }, [userData]);

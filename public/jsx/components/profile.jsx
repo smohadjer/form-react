@@ -1,4 +1,4 @@
-export default function({data}) {
+export default function Profile({data}) {
   return (
     <div className="profile">
       <h2>Database</h2>

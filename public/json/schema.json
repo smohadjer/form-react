@@ -26,7 +26,7 @@
       "maximum": 100,
       "errorMessage": {
         "minimum": "Age must be more than 10!",
-        "minLength": "Age must be less than 100!"
+        "maximum": "Age must be less than 100!"
      }
     }
   },
