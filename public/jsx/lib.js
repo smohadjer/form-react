@@ -1,17 +1,23 @@
-export async function fetchJson(path) {
-  const response = await fetch(path);
-  const json = await response.json();
-  return json;
+import validate from './validate.js';
+
+// client-side validation
+export function validateData(jsonData, schema, callback) {
+  let isValid = true;
+  const result = validate(jsonData, schema);
+  console.log(result);
+  if (result && Array.isArray(result)) {
+    isValid = false;
+    callback(result);
+  }
+  return isValid;
 }
 
-export async function getFormData(userData) {
-  const formJson = await fetchJson('json/form.json');
-  // add value from database to form fields
-  if (userData.length > 0) {
-    formJson.fields.map(field => {
-      const dbField = userData.find((item) => item.name === field.name);
-      return field.value = dbField.value;
-    });
-  }
-  return formJson;
+export async function fetchJson(path) {
+  const response = await fetch(path);
+  const responseJson = await response.json();
+  return responseJson;
 }
+
+
+
+

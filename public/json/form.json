@@ -1,30 +1,30 @@
 {
   "method": "POST",
   "action": "api/profile",
-  "headers": {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-  },
+  "disable-clientside-validation": true,
   "fields": [
+    {
+      "name": "_id",
+      "hidden": true
+    },
     {
       "name": "firstname",
       "label": "First Name",
-      "required": true,
-      "error": "Only letters are allowed",
-      "hint": "Use letters only, digits will trigger client-side error on submit"
+      "placeholder": "leave empty to see error",
+      "hint": "Use only letters",
+      "required": true
     },
     {
       "name": "lastname",
       "label": "Last Name",
-      "required": false,
-      "hint": "Use letters only, digits will trigger client-side error on submit"
+      "placeholder": "add a number to see error",
+      "hint": "Use only letters"
     },
     {
       "name": "age",
       "label": "Age",
-      "required": false,
-      "error": "Only digits are allowed",
-      "hint": "Use only digits. letters will trigger client-side error on submit. Add an age older than 100 to trigger server-side error"
+      "placeholder": "enter an age less than 10 to see error",
+      "hint": "Use only digits"
     }
   ]
 }
