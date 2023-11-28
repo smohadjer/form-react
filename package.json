@@ -5,9 +5,9 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "babel": "node ./node_modules/.bin/babel public/jsx --out-dir public/js --presets=@babel/preset-react",
-    "start": "npm run babel -- --watch & node server.js",
-    "dev": "npm run babel -- --watch & nodemon server.js"
+    "build": "node ./node_modules/.bin/babel public/jsx --out-dir public/js --presets=@babel/preset-react",
+    "start": "npm run build && node server.js",
+    "dev": "npm run build -- --watch & nodemon server.js"
   },
   "author": "Saeid Mohadjer",
   "license": "ISC",
