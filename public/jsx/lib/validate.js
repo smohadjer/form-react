@@ -11,8 +11,6 @@ export default function validate(json, schema) {
 
   ajvErrors(ajv);
 
-  console.log(ajv)
-
   const validator = ajv.compile(schema);
   const valid = validator(json);
   if (!valid) {

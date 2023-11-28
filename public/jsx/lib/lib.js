@@ -4,7 +4,6 @@ import validate from './validate.js';
 export function validateData(jsonData, schema, callback) {
   let isValid = true;
   const result = validate(jsonData, schema);
-  console.log(result);
   if (result && Array.isArray(result)) {
     isValid = false;
     callback(result);

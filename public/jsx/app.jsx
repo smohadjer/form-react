@@ -1,6 +1,6 @@
 import Form from './components/form.js';
 import Profile from './components/profile.js';
-import { fetchJson } from './lib.js';
+import { fetchJson } from './lib/lib.js';
 
 function App() {
   const [formData, setFormData] = React.useState(null);
@@ -34,7 +34,6 @@ function App() {
 
   // add errors to form data
   const updateFormDataErrors = (errors) => {
-    console.log(errors);
     if (formData && formData.fields.length) {
       const data = {...formData};
       errors.forEach(error => {
