@@ -10,15 +10,13 @@
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     </head>
     <body>
-        <h1>Implementing a Form in React</h1>
-        <p>This is a proof of concept for:</p>
+        <h1>Using JSON and JSON Schema to generate and validate forms in React</h1>
+        <p>This is a proof of concept for generating a HTML form from JSON in React. The form posts data to server which gets validated on the server using a JSON Schema before being written to database. If validation fails, errors are returned and displayed in the form, otherwise updated data in database is displayed on the page. Code available on <a href="https://github.com/smohadjer/form-react">GitHub</a></p>
         <ul>
-            <li>Generating a HTML form from a <a href="json/form.json">JSON</a> file</li>
-            <li>Posting form's data to server after client-side validation</li>
-            <li>Writing data to Database after server-side validation</li>
-            <li>Sending data back to browser after saving in Database via this <a href="api/profile">endpoint</a></li>
+            <li><a href="json/form.json">JSON for from</a></li>
+            <li><a href="json/schema.json">JSON Schema</a></li>
+            <li><a href="api/profile">API endpoint for data</a></li>
         </ul>
-        <p>Code available on <a href="https://github.com/smohadjer/form-react">GitHub</a></p>
         <div id="app"></div>
         <script type="module" src="js/app.js"></script>
     </body>
