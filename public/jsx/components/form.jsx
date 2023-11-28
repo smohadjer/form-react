@@ -1,5 +1,5 @@
 
-import { validateData, fetchJson } from './../lib.js';
+import { validateData, fetchJson } from './../lib/lib.js';
 import Hint from './hint.js';
 import Error from './error.js';
 
